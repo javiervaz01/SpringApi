@@ -42,6 +42,16 @@ class CrmApplicationTests {
 		assertEquals(lista.get(0).getId(),1);
 	}
 
+	@Test
+	void checkGetContactById(){
+		Contact contact1 = new Contact(1,false, "Phone call", (LocalDate.of( 2022 , Month.JANUARY , 12 )));
+		Contact contact = cs.getContactById(1);
+		assertEquals(contact.getId(),contact1.getId());
+		assertEquals(contact.getAction(),contact1.getAction());
+		assertEquals(contact.getDate(),contact1.getDate());
+	}
+
+	
 
 
 }
