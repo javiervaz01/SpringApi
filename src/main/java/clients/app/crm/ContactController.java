@@ -26,5 +26,10 @@ public class ContactController {
     public List<Contact> getAllContacts(){
         return cs.getAllContacts();
     }
+
+    @RequestMapping("/futureactions")
+    public List<Contact> getAllFutureActions(){
+        return cs.getAllFutureActions();
+    }
     
 }

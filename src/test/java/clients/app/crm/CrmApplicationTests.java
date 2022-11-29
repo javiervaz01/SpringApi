@@ -36,6 +36,13 @@ class CrmApplicationTests {
 	}
 
 	@Test
+	void checkReturnsFutureActions(){
+		List<Contact> lista = new ArrayList<>();
+		lista = cs.getAllFutureActions();
+		assertEquals(lista.get(0).getId(),2);
+	}
+
+	@Test
 	void checkReturnsOpportunities(){
 		List<Opportunity> lista = new ArrayList<>();
 		lista = os.getAllOpportunities();
