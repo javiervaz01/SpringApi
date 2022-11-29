@@ -2,26 +2,31 @@ package clients.app.crm;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.time.LocalDate;
+import java.time.Month;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import entities.Contact;
-
 @SpringBootTest
 class CrmApplicationTests {
 
-	@Autowired
-	private ContactRepository cs;
 
+	@Autowired
+	ContactService cs;
+	
 	@Test
 	void contextLoads() {
 	}
 
 	@Test
-	void checkCreationOfOpportunity(){
-		Contact contacto = this.cs.findByContactId(1);
-		assertEquals(contacto.getId(), 1);
+	void checkReturnsContacts(){
+		List<Contact> lista = new ArrayList<>();
+		lista = cs.getAllContacts();
+		assertEquals(lista.get(0).getId(),1);
 	}
 
 }
