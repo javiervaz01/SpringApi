@@ -1,4 +1,4 @@
-package clients.app.crm;
+package entities;
 
 import java.time.LocalDate;
 
