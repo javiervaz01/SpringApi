@@ -58,6 +58,17 @@ class CrmApplicationTests {
 		assertEquals(contact.getDate(),contact1.getDate());
 	}
 
+	@Test
+	void checkOpportunityById(){
+        Opportunity opportunity1 = new Opportunity(1, 1, false, "Pasteleria de Pepe");
+		Opportunity opportunity = os.getOpportunityById(1);
+		assertEquals(opportunity.getId(),opportunity1.getId());
+		assertEquals(opportunity.getContactId(),opportunity1.getContactId());
+		assertEquals(opportunity.isClient(),opportunity1.isClient());
+		assertEquals(opportunity.getName(),opportunity1.getName());
+
+	}
+
 	
 
 

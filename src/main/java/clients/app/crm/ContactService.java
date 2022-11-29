@@ -28,13 +28,10 @@ public class ContactService {
         Contact contact2 = new Contact(2,true, "Email conversation", (LocalDate.of( 2020 , Month.DECEMBER , 1 )));
         Contact contact3 = new Contact(3,false, "Normal talk", (LocalDate.of( 2020 , Month.DECEMBER , 1 )));
         Contact contact4 = new Contact(4,true, "Video Conference", (LocalDate.of( 2021 , Month.DECEMBER , 1 )));
-
-
         lista.add(contact1);
         lista.add(contact2);
         lista.add(contact3);
         lista.add(contact4);
-
         return lista;
     }
     List<Contact> lista = createContactList();
@@ -68,12 +65,16 @@ public class ContactService {
         return lista;
     }
 
+
+
     @Transactional
     public Contact getContactById(Integer id){
         Contact contact=null;
-        for (int i = 0; i < lista.size()-1; i++) {
-            if(lista.get(i).getId().equals(id));
-            contact = lista.get(i);
+        for (int i = 0; i < lista.size(); i++) {
+            if(lista.get(i).getId().equals(id)){
+                contact = lista.get(i);
+
+            }
         }
         return contact;
     }
