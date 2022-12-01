@@ -20,7 +20,12 @@ public class Contact {
 	// @ManyToOne
 	// private Opportunity opportunity;
 	@Id
+	@Column(unique=true)
 	Integer id;
+
+	String contactNameAndSurname;
+
+	String contactMethod;
 
 	//this boolean is like in Opportunity, just to avoid creating a new hole entity called
 	//future action, that is just a contact but in the future.
@@ -31,12 +36,15 @@ public class Contact {
 	@DateTimeFormat(pattern = "yyyy/MM/dd")
 	private LocalDate date;
 
-	public Contact(Integer id,boolean isFutureAction, String action, LocalDate date) {
+	public Contact(Integer id,String contactNameAndSurname, String contactMethod, boolean isFutureAction, String action, LocalDate date) {
 		this.id=id;
+		this.contactNameAndSurname=contactNameAndSurname;
+		this.contactMethod=contactMethod;
 		this.isFutureAction = isFutureAction;
 		this.action = action;
 		this.date = date;
 	}
+
 
 	public Integer getId() {
 		return id;
@@ -49,6 +57,28 @@ public class Contact {
 	public String getAction() {
 		return action;
 	}
+
+	
+
+	public void setContactNameAndSurname(String contactNameAndSurname) {
+		this.contactNameAndSurname = contactNameAndSurname;
+	}
+
+
+	public void setContactMethod(String contactMethod) {
+		this.contactMethod = contactMethod;
+	}
+
+
+	public String getContactNameAndSurname() {
+		return contactNameAndSurname;
+	}
+
+
+	public String getContactMethod() {
+		return contactMethod;
+	}
+
 
 	public LocalDate getDate() {
 		return date;
