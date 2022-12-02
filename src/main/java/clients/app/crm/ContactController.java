@@ -44,5 +44,14 @@ public class ContactController {
     public Contact getContactsById(@PathVariable("id") Integer id){
         return cs.getContactById(id);
     }
+
+    @RequestMapping("/contacts/changetype/{id}")
+    public void changeContactType(@PathVariable("id") Integer id){
+        cs.changeContactToFutureActionAndViceversa(id, cs.createContactList());;
+    }
+    @RequestMapping("/futureactions/changetype/{id}")
+    public void changeFutureActionType(@PathVariable("id") Integer id){
+        cs.changeContactToFutureActionAndViceversa(id, cs.createContactList());;
+    }
     
 }
